@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Out</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #90CAF9;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+        }
+
+        #yesBtn {
+            background-color: #1589FF; /* Dark Blue */
+        }
+
+        #noBtn {
+            background-color: #1589FF; /* Dark Blue */
+        }
+
+        .bear {
+            display: block;
+            margin: 20px auto 0;
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="initialScreen">
+        <h1>Do you wanna go out with me?</h1>
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQY0KGU-kE4zWh8AvWAiYftFUU4Wt3AyAIgXC8i8Y3eC0-8vyBX" alt="cute bear" class="bear">
+    </div>
+    <div class="container hidden" id="resultScreen">
+        <h1>❤️❤️❤️ Yay! Can't wait! ❤️❤️❤️</h1>
+        <img src="https://gifdb.com/images/high/animated-bear-is-in-love-obdfb0txoitfinz6.webp" alt="cute bear" class="bear">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const initialScreen = document.getElementById('initialScreen');
+            const resultScreen = document.getElementById('resultScreen');
+
+            yesBtn.addEventListener('click', () => {
+                initialScreen.classList.add('hidden');
+                resultScreen.classList.remove('hidden');
+            });
+
+            noBtn.addEventListener('mouseover', () => {
+                const x = Math.floor(Math.random() * (window.innerWidth - noBtn.offsetWidth));
+                const y = Math.floor(Math.random() * (window.innerHeight - noBtn.offsetHeight));
+                noBtn.style.position = 'absolute';
+                noBtn.style.left = `${x}px`;
+                noBtn.style.top = `${y}px`;
+            });
+        });
+    </script>
+</body>
+</html>
